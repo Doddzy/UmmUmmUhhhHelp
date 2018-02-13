@@ -5,4 +5,4 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require 'umm_umm_uhhh_help'
 
-puts 'I suggest a suggestion'
+puts 'UmmUmmUhhhHelp.get_suggestion'
