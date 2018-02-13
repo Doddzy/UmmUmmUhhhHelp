@@ -1,4 +1,5 @@
 # UmmUmmUhhhHelp
+![Build status](https://travis-ci.org/Doddzy/UmmUmmUhhhHelp.svg?branch=master)
 
 So, this is a thing, maybe kind of a thing, who knows.
 
