@@ -9,11 +9,40 @@ describe UmmUmmUhhhHelp do
     stub_request(:get, 'https://catfact.ninja/fact').to_return(body: json_fact)
   end
 
-  describe '.get_suggestion' do
-    subject { described_class.get_suggestion }
+  describe '.get_topic' do
+    let(:category_index) {'default'}
 
-    it 'should return a suggestion' do
-      expect(subject).to be_a(String)
+    subject {described_class.get_topic(category_index)}
+
+    it 'should default to mastercard when given unknown index' do
+      expect(subject).to eq('Mastercard')
+    end
+
+    context 'category 1' do
+      let(:category_index) {'1'}
+
+      it 'should return a Space topic' do
+        expect(subject).to start_with('Space: ')
+        expect(subject.length).to be > 7
+      end
+    end
+
+    context 'category 2' do
+      let(:category_index) {'2'}
+
+      it 'should return a compliment topic' do
+        expect(subject).to start_with('Compliment: ')
+        expect(subject.length).to be > 12
+      end
+    end
+
+    context 'category 3' do
+      let(:category_index) {'3'}
+
+      it 'should return a Fact topic' do
+        expect(subject).to start_with('Fact: ')
+        expect(subject.length).to be > 6
+      end
     end
   end
 
