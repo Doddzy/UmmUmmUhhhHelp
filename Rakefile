@@ -7,5 +7,5 @@ task :test do
 end
 
 task :run do
-  UmmUmmUhhhHelp.run_example
+  UmmUmmUhhhHelp.run
 end

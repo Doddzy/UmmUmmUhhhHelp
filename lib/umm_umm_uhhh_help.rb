@@ -1,7 +1,11 @@
 require 'httparty'
-require 'topic'
+
+require_relative 'topic'
 
 module UmmUmmUhhhHelp
+  def self.run
+    puts get_suggestion
+  end
 
   def self.topics
     [
