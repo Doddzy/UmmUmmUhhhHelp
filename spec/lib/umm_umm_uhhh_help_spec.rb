@@ -31,7 +31,7 @@ describe UmmUmmUhhhHelp do
       let(:category_index) {'2'}
 
       it 'should return a compliment topic' do
-        expect(subject).to start_with('Compliment: ')
+        expect(subject).to start_with('Compliments: ')
         expect(subject.length).to be > 12
       end
     end
@@ -40,13 +40,30 @@ describe UmmUmmUhhhHelp do
       let(:category_index) {'3'}
 
       it 'should return a Fact topic' do
-        expect(subject).to start_with('Fact: ')
+        expect(subject).to start_with('Weird: ')
+        expect(subject.length).to be > 6
+      end
+    end
+
+    context 'category 4' do
+      let(:category_index) {'4'}
+
+      it 'should return a Fact topic' do
+        expect(subject).to start_with('Facts: ')
         expect(subject.length).to be > 6
       end
     end
   end
 
   describe '.get_cat_fact' do
+    subject {described_class.get_cat_fact}
+
+    it 'should return stubbed cat fact' do
+      expect(subject).to eql(stubbed_external_fact)
+    end
+  end
+
+  describe '.weird_topics' do
     subject {described_class.get_cat_fact}
 
     it 'should return stubbed cat fact' do

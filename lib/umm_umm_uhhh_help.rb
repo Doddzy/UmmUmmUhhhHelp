@@ -14,16 +14,18 @@ module UmmUmmUhhhHelp
     puts 'What type of topic would you like today?'
     puts '1: Space'
     puts '2: Compliments'
-    puts '3: Cats'
+    puts '3: Weird questions'
+    puts '4: Facts'
 
     STDIN.gets.chomp
   end
 
   def self.get_topic(category)
     category = {
-      '1' => Category.new('Space', space_topics),
-      '2' => Category.new('Compliment', compliment_topics),
-      '3' => Category.new('Fact', fact_topics),
+      '1' => Category.new('Space'),
+      '2' => Category.new('Compliments'),
+      '3' => Category.new('Weird'),
+      '4' => Category.new('Facts', fact_topics),
     }[category]
 
     return 'Mastercard' unless category
@@ -38,13 +40,5 @@ module UmmUmmUhhhHelp
     response = HTTParty.get('https://catfact.ninja/fact')
     data = JSON.parse(response.body)
     data['fact']
-  end
-
-  def self.space_topics
-    [Topic.new('Do you think space tourism will be big in the near future? Why or why not?')]
-  end
-
-  def self.compliment_topics
-    [Topic.new("Talk about how cute #{`whoami`.chomp} is")]
   end
 end

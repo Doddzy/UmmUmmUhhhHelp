@@ -6,7 +6,7 @@ describe Topic do
 
       it 'should return message' do
         message = 'greetings stringling'
-        topic = Topic.new(message)
+        topic = described_class.new(message)
 
         expect(topic.message).to eql(message)
       end
@@ -18,7 +18,7 @@ describe Topic do
           message = 'greetings procling'
           method = Proc.new {message}
 
-          topic = Topic.new(method)
+          topic = described_class.new(method)
 
           expect(topic.message).to eql(message)
         end
@@ -30,7 +30,7 @@ describe Topic do
             'greetings innerling'
           end
 
-          topic = Topic.new(method(:yay))
+          topic = described_class.new(method(:yay))
 
           expect(topic.message).to eql('greetings innerling')
         end
