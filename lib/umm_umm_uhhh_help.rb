@@ -1,15 +1,20 @@
 require 'httparty'
+require 'topic'
 
 module UmmUmmUhhhHelp
-  def self.get_suggestion
-    suggestion = [
-      'Do you think space tourism will be big in the near future? Why or why not?',
-      "Talk about how cute #{`whoami`.chomp} is",
-      method(:get_cat_fact)
-    ].sample
 
-    return suggestion.call if suggestion.is_a?(Method)
-    suggestion
+  def self.topics
+    [
+      Topic.new('Do you think space tourism will be big in the near future? Why or why not?'),
+      Topic.new("Talk about how cute #{`whoami`.chomp} is"),
+      Topic.new(method(:get_cat_fact))
+    ]
+  end
+
+  def self.get_suggestion
+    selected_topic = topics.sample
+
+    selected_topic.message
   end
 
   def self.get_cat_fact
