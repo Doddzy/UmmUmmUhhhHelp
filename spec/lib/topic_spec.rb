@@ -2,9 +2,9 @@ require 'topic'
 
 describe Topic do
   describe '.message' do
-    context "for a string based topic" do
+    context 'for a string based topic' do
 
-      it "should return message" do
+      it 'should return message' do
         message = 'greetings stringling'
         topic = Topic.new(message)
 
@@ -12,9 +12,9 @@ describe Topic do
       end
     end
 
-    context "for a function based topic" do
-      context "proc" do
-        it "should return message" do
+    context 'for a function based topic' do
+      context 'proc' do
+        it 'should return message' do
           message = 'greetings procling'
           method = Proc.new {message}
 
@@ -24,8 +24,8 @@ describe Topic do
         end
       end
 
-      context "inner function" do
-        it "should return message from function" do
+      context 'inner function' do
+        it 'should return message from function' do
           def yay
             'greetings innerling'
           end
