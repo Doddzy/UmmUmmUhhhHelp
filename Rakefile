@@ -1,5 +1,3 @@
-require_relative 'lib/umm_umm_uhhh_help.rb'
-
 task default: %w[test]
 
 task :test do
@@ -7,5 +5,5 @@ task :test do
 end
 
 task :run do
-  UmmUmmUhhhHelp.run
+  sh './bin/suggest'
 end
