@@ -15,7 +15,7 @@ describe UmmUmmUhhhHelp do
     subject {described_class.get_topic(category_index)}
 
     it 'should default to mastercard when given unknown index' do
-      expect(subject).to eq('Mastercard')
+      expect(subject).to eq('Mastercard™️')
     end
 
     context 'category 1' do
