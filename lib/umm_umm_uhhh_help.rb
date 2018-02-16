@@ -28,7 +28,7 @@ module UmmUmmUhhhHelp
       '4' => Category.new('Facts', fact_topics),
     }[category]
 
-    return 'Mastercard' unless category
+    return 'Mastercard™️' unless category
     "#{category.name}: #{category.random_topic.message}"
   end
 
